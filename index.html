@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vinclo Systems | Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+}
+
+.header {
+    background: #1e3c72;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left img {
+    height: 40px;
+}
+
+.logout {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.section {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="header-left">
+        <img src="./logo.png" alt="Vinclo Systems Logo">
+        <h2>Internal Recruitment Dashboard</h2>
+    </div>
+    <div>
+        <span id="userInfo"></span>
+        <a class="logout" href="./login.html" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<div class="section">
+    <h3>Recruitment</h3>
+    <p>
+        <a href="./open-mandates.html">
+            ➡️ View Open Mandates
+        </a>
+    </p>
+</div>
+
+<div class="section">
+    <h3>Instructions</h3>
+    <ul>
+        <li>All mandates are open to recruiters</li>
+        <li>Download JD and start sourcing</li>
+        <li>Multiple recruiters can work on same mandate</li>
+    </ul>
+</div>
+
+<script>
+var user = localStorage.getItem("username");
+if (!user) {
+    window.location.replace("./login.html");
+}
+document.getElementById("userInfo").innerText = "User: " + user;
+
+function logout() {
+    localStorage.clear();
+}
+</script>
+
+</body>
+</html>
